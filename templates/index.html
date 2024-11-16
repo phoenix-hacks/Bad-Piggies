@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AiDo - Video Editing Simplified</title>
+  <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+</head>
+<body>
+    <video class="video-background" autoplay muted loop>
+        <source src="{{ url_for('static', filename='multiculturalpeoplelmao.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+  <header>
+    <div class="container" style="width: 100%;">
+      <div class="logo">AIDO</div>
+      <nav>
+        <ul class="nav-links" >
+          <li><a href="#about">About</a></li>
+          <li><a href="#tryitnow">Try It Now</a></li>
+          <li><a href="#github">Github</a></li>
+        </ul>
+      </nav>
+      
+      
+    </div>
+  </header>
+  
+  <section class="hero">
+    <div class="container">
+      <h1>Experience the thrill of automation in editing</h1>
+      <p>Edit videos easily with our powerful and user-friendly tools.</p>
+      <a href="dashboard" class="btn-primary">Try It Now</a>
+    </div>
+  </section>
+  
+  
+  
+  <footer>
+    
+  </footer>
+</body>
+</html>

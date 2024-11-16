@@ -1,0 +1,181 @@
+#files-bar {
+    width: 20%;
+    height: 100%;
+    background: gray;
+
+<<<<<<< HEAD
+    border-width: 2px;
+=======
+    border-width: 25px;
+>>>>>>> 8ce312b45e035f3080bc496caae10a5a7031ce59
+    border-color: black;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    resize: horizontal;
+<<<<<<< HEAD
+    border-style: dashed;
+=======
+>>>>>>> 8ce312b45e035f3080bc496caae10a5a7031ce59
+}
+
+#files_bar.is-dragover {
+    background-color: white;
+}
+
+#video-editor { 
+    width: 79%;
+<<<<<<< HEAD
+    height: 100%;
+=======
+    height: 80%;
+>>>>>>> 8ce312b45e035f3080bc496caae10a5a7031ce59
+    background-color: transparent;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
+#ai-promptbox {
+    height: 135px;
+    padding-top: 10px;
+<<<<<<< HEAD
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+=======
+>>>>>>> 8ce312b45e035f3080bc496caae10a5a7031ce59
+}
+
+#dashboard-body {
+    background: #e2d8bb;
+}
+
+#file-picker-button {
+    background-color: transparent;
+    color: black;
+    border: none;
+    font-weight: 600;
+}
+
+#file-picker-button:hover {
+
+    text-decoration:underline;
+    cursor: pointer;
+}
+
+body {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    width: 98%;
+    height: 100%;
+    padding: 10px;
+}
+
+section {
+    width: 100%;
+    height: 550px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+textarea {
+    resize: none;
+<<<<<<< HEAD
+    width: 98%;
+    height: 80%;
+    border-radius: 10px;
+    background-color: rgb(214, 212, 212);
+    padding: 10px;
+}
+
+section + #ai-promptbox {
+=======
+    width: 99%;
+    height: 80%;
+    border-radius: 10px;
+    background-color: transparent;
+    padding: 10px;
+}
+
+section + textarea {
+>>>>>>> 8ce312b45e035f3080bc496caae10a5a7031ce59
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+video {
+    height: 100%;
+    margin-right: 10px;
+<<<<<<< HEAD
+    border-radius: 10px;
+=======
+>>>>>>> 8ce312b45e035f3080bc496caae10a5a7031ce59
+}
+
+#video-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    width: 100%;
+<<<<<<< HEAD
+}
+
+#side-button {
+    background: rgb(237, 129, 22);;
+    color: darkslategray;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    width: 80px;
+    transition: 0.6s;
+}
+
+#side-button:hover {
+    background: rgb(216, 96, 5);
+    color: lightgray;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+#side-button + #side-button {
+    margin-top: 5px;
+}
+
+#prompt-buttons-div {
+    padding-top: 10px;
+    padding-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#prompt-buttons-div > button {
+    width: 100%;
+    background-color: rgb(237, 129, 22);
+    height: 47%;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    transition: 0.6s;
+}
+
+#prompt-buttons-div > button:hover {
+    background: rgb(216, 96, 5);
+    color: lightgray;
+    transition: 0.4s;
+    cursor: pointer;
+=======
+>>>>>>> 8ce312b45e035f3080bc496caae10a5a7031ce59
+}
