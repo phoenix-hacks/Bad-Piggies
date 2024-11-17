@@ -1,12 +1,13 @@
-from flask import Flask,render_template, request, send_from_directory, jsonify
+from flask import Flask,render_template, request, send_from_directory, jsonify, url_for
 from flask_htmx import HTMX
 import os
 from moviepy.editor import *
 import os
 import logging
-from functions import *
-
+from ollama_functionality import llmotpt
+from werkzeug.utils import secure_filename
 import video_player
+import shutil
 
 
 app=Flask(__name__)
@@ -20,25 +21,12 @@ class VideoProcessor:
     
     def process_video(self, video_path: str, prompt: str) -> str:
         try:
+            print("K")
             clip = VideoFileClip(video_path)
             base_filename = os.path.splitext(os.path.basename(video_path))[0]
             output_path = os.path.join(self.processed_videos_dir, f"{base_filename}_processed.mp4")
+            llmotpt(prompt,video_path,output_path)
             
-            if "volume" in prompt:
-                val = 0
-                for i in prompt:
-                    if i.isdigit():
-                        val = int(i)
-                if "reduce" in prompt or "decrease" in prompt:
-                    clip = volume(clip, 1/val)
-                else:
-                    clip = volume(clip, val)
-            
-            if "black" in prompt or "white" in prompt:
-                clip = blackAndWhite(clip)
-            
-            final_clip = compositeVideo(clip)
-            writeEnd(final_clip, output_path)
             return output_path
             
         except Exception as e:
@@ -58,14 +46,6 @@ def home():
 def dashboard_page():
     return render_template('dashboard.html')
 
-@app.route('/editor')
-def tryit():
-    ('editor.html')
-
-
-@app.get('/test')
-def button_test():
-    return 'LOL'
 
 @app.get('/files_bar')
 def files_bar_partial():
@@ -110,33 +90,72 @@ def upload_video():
             return jsonify({'error': 'No selected file'}), 400
         
         if video_file:
+            print(video_file)
             filename = video_file.filename
-            upload_path = os.path.join('static/uploads', filename)
+            upload_path = os.path.join('static/uploads/video.mp4')
             video_file.save(upload_path)
+            shutil.copy(upload_path, 'static/processed_videos/video_processed.mp4')
             
             logger.debug(f"Video saved to {upload_path}")
+            
+            return jsonify({
+                'message': 'Video uploaded successfully',
+                'processed_video': upload_path
+        })
+    except Exception as e:
+        logger.error(f"Upload error: {str(e)}", exc_info=True)
+        return jsonify({'error': str(e)}), 500
+
+@app.get('/static/<path:filename>')
+def serve_static(filename):
+    return url_for('static', filename=filename)
+    
+@app.post('/process')
+def process():
+    try:
+        if 'video' not in request.files:
+            return jsonify({'error': 'No video file provided'}), 400
+        
+        video_file = request.files['video']
+        prompt = request.form.get('prompt', '')
+
+        print('Prompt given: ' + prompt)
+        
+        if video_file.filename == '':
+            return jsonify({'error': 'No selected file'}), 401
+        
+        if video_file:
+            # Ensure the upload directory exists
+            os.makedirs('static/processed_videos', exist_ok=True)
+            
+            # Secure the filename and save the file
+            filename = video_file.filename
+            os.makedirs('static/uploads', exist_ok=True)
+            upload_path = os.path.join('static/uploads', filename)
+
+            if os.path.exists('static/processed_videos/video_processed.mp4'):
+                shutil.copy2('static/processed_videos/video_processed.mp4', 'static/uploads/video.mp4')
+                print('Moved previously processed video')
+            
+            # Process the video
+            print('Process: ' + upload_path)
             processed_path = processor.process_video(upload_path, prompt)
-            url_path = '/static/' + processed_path.replace('static/', '', 1)
+            url_path = processed_path#.replace('static/', '', 1)
+            
             logger.debug(f"URL path for processed video: {url_path}")
             
             return jsonify({
                 'message': 'Video processed successfully',
                 'processed_video': url_path
             })
-            
     except Exception as e:
-        logger.error(f"Upload error: {str(e)}", exc_info=True)
+        logger.error(f"Processing error: {str(e)}", exc_info=True)
         return jsonify({'error': str(e)}), 500
-
-@app.route('/static/<path:filename>')
-def serve_static(filename):
-    return send_from_directory('static', filename)
-
-
 
 if __name__ == '__main__':
     for directory in ['static/uploads', 'static/processed_videos']:
         os.makedirs(directory, exist_ok=True)
+        
         logger.debug(f"Created directory: {directory}")
     
     app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024 * 1024

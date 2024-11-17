@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <style>
+
+
+  </style>
+
+
+  <meta charset="UTF-8">
+  <link rel="icon" href=
+"C:\Users\dell\OneDrive\Desktop\Phoenix_Hacks\icon.png"
+        type="image/x-icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIDO - Video Editing Simplified</title>
+  <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  
+</head>
+<body>
+  
+    <video class="video-background" autoplay muted loop>
+        <source src="{{ url_for('static', filename='multiculturalpeoplelmao.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+  <header>
+    <div class="container" style="width: 100%;">
+      <div class="navbar-container">
+      <div class="logo" style="size: 120px;color: white;">AIDO.</div>
+      <nav>
+        <ul class="nav-links">
+          <li><a style="color:white;" href="#about"><i class="fa-solid fa-gamepad"></i>  About</a></li>
+          <li ><a style="color:white;" href="dashboard"><i class="fa-sharp fa-solid fa-user"></i> Try It Now</a></li>
+          <li ><a style="color:white;" href="https://github.com/phoenix-hacks/Bad-Piggies"><i class="fa-brands fa-github"></i> GitHub</a></li>
+        </ul>
+      </nav>  
+    </div>
+    </div>
+  </header>
+  
+  <section class="hero">
+    <div class="container" style="text-align: left;padding-bottom: 200px;padding-top: 200px;">
+      <h1>Editing redefined</h1>
+      <p>Create stunning videos in minutes with our powerful and user-friendly tools. No sign-up, no download and most importantly no learning how 
+        to use complex video editing software - Everything is done by our in house AI!
+      </p>
+      
+    </div>
+  </section>
+ 
+  <section id="about" class="hero">
+    <div class="container" style="color: rgb(8, 0, 0); display: flex; text-align: left; justify-content: space-between;">
+        <div style="flex: 1;">
+            <h1>About AIDO</h1>
+            <p>AI video editing is transforming the way videos are created and edited. 
+              By leveraging artificial intelligence and machine learning, these tools 
+              automate tasks, enhance creativity, and personalize the viewing experience. 
+              This technology is rapidly changing the landscape for everyone from casual 
+              creators to professional filmmakers.
+            </p>
+        </div>
+        <img src="{{ url_for('static', filename='aboutus2.png') }}" style="width: 50%; max-width: 300px; margin-left: 20px;">
+    </div>
+</section>
+
+
+  <section class="features" >
+
+    <h1 style="margin-left: 140px; color: black; font-size: 25px;">Here's what sets us apart from the rest:</h1>
+    <div class="container" style="color: rgb(8, 0, 0); display: flex; align-items: center;">
+      
+    <img src="{{ url_for('static', filename='foss.png') }}" style="width: 50%; max-width: 300px; margin-right: 20px;">
+    <div class="container" style="color: rgb(11, 9, 9);">
+      
+        <h1 style="margin-bottom: 20px;">Free and Open Source</h1>
+        
+        <p style="font-size:19px;">AIDO is an AI-powered, open-source video editing software that simplifies tasks like adding text and changing the colour scheme, etc. Its libre nature allows users to freely use, modify, and share the software, promoting collaboration and continuous improvement.
+        </p>
+    </div>
+  </div>
+  </section>
+  <section class="hero">
+    <div class="container" style="color: rgb(8, 0, 0); display: flex; text-align: left; justify-content: left;">
+        <div style="flex: 1;">
+            <h1>No download needed</h1>
+            <p>AIDO is a free, web-based AI video editor that doesn't require any downloads or installations. Its open-source and libre nature makes it fully customizable, allowing users to edit videos directly in their browser without the need for costly licenses or subscriptions.</p>
+        </div>
+        <img src="{{ url_for('static', filename='download_1.png') }}" style="width: 50%; max-width: 300px; margin-left: 20px;">
+    </div>
+</section>
+  <section class="features" >
+    <div class="container" style="color: white; display: flex; align-items: right;">
+    <img src="{{ url_for('static', filename='learning curve.png') }}" style="width: 50%; max-width: 300px; margin-right: 20px;">
+    <div class="container" style="color: rgb(11, 9, 9);">
+        <h1 style="margin-bottom: 20px;">The learning curve is less steep</h1>
+        <p style="font-size: 19px;">AIDO simplifies video editing with AI and natural language commands (NLP), eliminating the steep learning curve. Users can easily edit videos by typing instructions, letting the AI handle complex tasks for a smooth and intuitive experience.</p>
+    </div>
+  </div>
+  </section>
+
+
+<footer>
+  <div style="color: white; text-align: center;background-color: rgb(54, 54, 54);">
+<p>&copy; Bad Piggies | Phoenix Hacks 2024 | Made with ❤️ in RVITM</p>
+  </div>
+  </footer>
+</body>
+</html>

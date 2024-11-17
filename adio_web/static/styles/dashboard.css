@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Reddit+Sans:ital,wght@0,200..900;1,200..900&display=swap');
+
+body{
+    font-family: 'Reddit Sans';
+}
+#files-bar {
+    width: 20%;
+    height: 100%;
+    background: rgb(236, 192, 139);
+
+    border-width: 2px;
+    border-color: black;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    resize: horizontal;
+    border-style: dashed;
+}
+
+#files_bar.is-dragover {
+    background-color: white;
+}
+
+#video-editor { 
+    width: 79%;
+    height: 100%;
+    background-color: transparent;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
+#ai-promptbox {
+    height: 80px;
+    padding-top: 10px;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#dashboard-body {
+    background: #fcfaf6;
+}
+
+#file-picker-button {
+    background-color: transparent;
+    color: black;
+    border: none;
+    font-weight: 600;
+}
+
+#file-picker-button:hover {
+
+    text-decoration:underline;
+    cursor: pointer;
+}
+
+body {
+    font-family:'Reddit Sans';
+    font-size: 14px;
+    width: 98%;
+    height: 100%;
+   
+}
+
+section {
+    width: 85%;
+    height: 550px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+textarea {
+    resize: none;
+    width: 98%;
+    height: 80%;
+    border-radius: 10px;
+    background-color: rgb(220, 220, 220);
+    padding: 10px;
+}
+
+section + #ai-promptbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+video {
+    height: 100%;
+    margin-right: 10px;
+    border-radius: 10px;
+}
+
+#video-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    width: 100%;
+}
+
+#side-button {
+    background: rgb(236, 192, 139);
+    color:black;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    width: 80px;
+    transition: 0.6s;
+    margin-right:20px;
+}
+
+#side-button:hover {
+    background: rgb(226, 154, 65);
+    color: white;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+#side-button + #side-button {
+    margin-top: 5px;
+}
+
+#prompt-buttons-div {
+    padding-top: 10px;
+    padding-bottom: 5px;
+    display: flex;
+    margin-top: 15px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#prompt-buttons-div > button {
+    width: 100%;
+    background-color: rgb(236, 192, 139);
+    height: 50px;
+    border: none;
+    color: black;
+    border-radius: 15px;
+    transition: 0.6s;
+}
+
+#prompt-buttons-div > button:hover {
+    background: rgb(226, 154, 65);
+    color: white;
+    transition: 0.4s;
+    cursor: pointer;
+}
